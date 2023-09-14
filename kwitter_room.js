@@ -21,6 +21,10 @@ function add_room() {
 
       window.location="kwitter_room.html"
 
+      firebase.database().ref("/").child(room_name).update({
+             purpose: "Adding Room Name"
+      });
+
 }
 
 function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
